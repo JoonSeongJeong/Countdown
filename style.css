@@ -1,102 +1,109 @@
-@charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&disply=swap');
-:root{
-    --bg:#2f363e;
-}
+@import url('https://fonts.googlepis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 *
-{margin:0;padding:0;box-sizing:border-box;}
-html,body{
-    font-family: 'Outfit', sans-serif;
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-body{
-    display:flex;flex-flow:column nowrap;
-    justify-content:center; align-items:center;
-    gap:40px;
+body
+{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     min-height: 100vh;
-    background:var(--bg); color:#fff;
+    background: #2f363e;
 }
-
-#wrap-time{
-    display:flex;flex-flow:row wrap;
-    justify-content:center; align-items:flex-start;
-    gap:30px;
+#time
+{
+    display: flex;
+    gap: 30px;
+}
+#time .circle
+{
     position: relative;
-    width: 90%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.circle-wrap{
-    --wid:150px;
-    /* outline:1px solid red; */
-    display:flex;flex-flow:row wrap;
-    justify-content:center;align-items:center;
-    position:relative;
-    width:var(--wid); aspect-ratio:1/1;
-    text-align:center;
+#time .circle svg
+{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
 }
-
-/* svg */
-.circle{
-    /* outline:1px solid red; */
-    --stroke-width:8;
-    --half:calc(var(--stroke-width) / 2 * 1px);
-    position:relative;
-    width:var(--wid); aspect-ratio:1/1;
+#time .circle svg circle
+{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 8;
+    stroke: #282828;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
 }
-.circle circle{
-    width:100%; aspect-ratio:1/1;
-    fill:transparent;
-    stroke-width:var(--stroke-width);
-    stroke:#282828;
-    transform:translate(5px,5px);
+#time .circle svg circle:nth-child(2)
+{
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
 }
-    /*
-    https://mong-blog.tistory.com/entry/svg%EA%B0%80-%EA%B7%B8%EB%A0%A4%EC%A7%80%EB%8A%94-%ED%9A%A8%EA%B3%BCwith-stroke-dasharray-stroke-dashoffset
-    */
-    /* 
-    https://github.com/OhIkmyeong/svg-pie_chart/blob/main/src/pie.js
-     */
-.circle circle:nth-child(2){
-    transform-origin:center center;
-    transform:rotate(-90deg) translate(var(--half), var(--half));
-    stroke:var(--clr);
+#time div
+{
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 1.5em;
 }
-
-    /* time */
-.circle-time{
-    position:absolute;
-    width:100%;
-    font-size:16px;
-    text-transform:uppercase;
+#time div span
+{
+    position: absolute;
+    transform: translateX(-50%) translateY(-10px);
+    font-size: 0.35em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
-.circle-time span{font-size:1.9em;font-weight:bold;}
-    /* dot */
-.circle-dot{
-    position:absolute;
-    width:100%; aspect-ratio:1/1;
-    border-radius:50%;
-    transition:transform .5s;
+#time .dots
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
 }
-.circle-dot::before{
-    content:''; display:block; position:absolute;
-    top:0;left:50%;
-    transform:translate(-80%,0%);
-    width:10px; aspect-ratio:1/1;
-    background:var(--clr);
-    border-radius:50%;
-    box-shadow:
-        0 0 5px var(--bg),
-        0 0 10px var(--bg),
-        0 0 20px var(--clr),
-        0 0 30px var(--clr),
-        0 0 40px var(--clr),
-        0 0 50px var(--clr),
-        0 0 60px var(--clr);
+#time .dots::before
+{
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 15px;
+    height: 15px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+    0 0 60px var(--clr);
 }
-
-    /* [New Year] */
-#wrap-newyear{
-    position:relative;
-    width:100%;
-    font-size:5vmin; text-align:center; font-weight:normal;
+.newYear
+{
+    position: relative;
+    font-size: 8em;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.6em;
 }
-#wrap-newyear #newyear{font-size:1.5em;}
+.newYear span
+{
+    font-size: 0.5em;
+    font-weight: 300;
+}
