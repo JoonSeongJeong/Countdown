@@ -1,0 +1,103 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+:root{
+    --bg:#2f363e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+    font-family: 'Outfit', sans-serif;
+}
+body{
+    display:flex;flex-flow:column nowrap;
+    justify-content:center; align-items:center;
+    gap:40px;
+    min-height:100vh;
+    background:var(--bg); color:#fff;
+}
+ 
+/*  */
+#wrap-time{
+    display:flex;flex-flow:row wrap;
+    justify-content:center; align-items:flex-start;
+    gap:30px;
+    position:relative;
+    width:90%;
+}
+ 
+.circle-wrap{
+    --wid:150px;
+    /* outline:1px solid red; */
+    display:flex; flex-flow:row wrap;
+    justify-content:center;align-items:center;
+    position:relative;
+    width:var(--wid); aspect-ratio:1/1;
+    text-align:center;
+}
+ 
+/* svg */
+.circle{
+    /* outline:1px solid red; */
+    --stroke-width:8;
+    --half:calc(var(--stroke-width) / 2 * 1px);
+    position:relative;
+    width:var(--wid); aspect-ratio:1/1;
+}
+.circle circle{
+    width:100%; aspect-ratio:1/1;
+    fill:transparent;
+    stroke-width:var(--stroke-width);
+    stroke:#282828;
+    transform:translate(5px,5px);
+}
+/*
+https://mong-blog.tistory.com/entry/svg%EA%B0%80-%EA%B7%B8%EB%A0%A4%EC%A7%80%EB%8A%94-%ED%9A%A8%EA%B3%BCwith-stroke-dasharray-stroke-dashoffset
+*/
+/* 
+https://github.com/OhIkmyeong/svg-pie_chart/blob/main/src/pie.js
+ */
+.circle circle:nth-child(2){
+    transform-origin:center center;
+    transform:rotate(-90deg) translate(var(--half), var(--half));
+    stroke:var(--clr);
+}
+ 
+/* time */
+.circle-time{
+    position:absolute;
+    width:100%;
+    font-size:16px;
+    text-transform:uppercase;
+}
+.circle-time span{font-size:1.9em;font-weight:bold;}
+ 
+/* dot */
+.circle-dot{
+    position:absolute;
+    width:100%; aspect-ratio:1/1;
+    border-radius:50%;
+    transition:transform .5s;
+}
+.circle-dot::before{
+    content:''; display:block; position:absolute;
+    top:0;left:50%;
+    transform:translate(-80%,0%);
+    width:10px; aspect-ratio:1/1;
+    background:var(--clr);
+    border-radius:50%;
+    box-shadow:
+        0 0 5px var(--bg),
+        0 0 10px var(--bg),
+        0 0 20px var(--clr),
+        0 0 30px var(--clr),
+        0 0 40px var(--clr),
+        0 0 50px var(--clr),
+        0 0 60px var(--clr);
+}
+ 
+/* [New Year] */
+#wrap-newyear{
+    position:relative;
+    width:100%;
+    font-size:5vmin; text-align:center; font-weight:normal;
+}
+#wrap-newyear #newyear{font-size:1.5em;}
