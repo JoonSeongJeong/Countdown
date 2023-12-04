@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/Countdown',
+  publicPath: 'JoonSeongJeong.github.io',
 };
