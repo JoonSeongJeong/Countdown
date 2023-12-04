@@ -3,8 +3,8 @@ class CountDown {
     /** 텍스트 및 시간 변경 */
     constructor() {
         this.currDate = new Date();
-        /** this.nextYear = new Date(`${this.currDate.getFullYear() + 1}-01-01, 00:00:00`); */
-        this.nextYear = new Date('2024-12-09T00:00:00');
+        this.nextYear = new Date(`${this.currDate.getFullYear() + 1}-01-01, 00:00:00`);
+        /** this.nextYear = new Date('2024-12-09T00:00:00'); */
         this.nextTime = this.nextYear.getTime();
         this.IDS = ["day", "hour", "min", "sec"];
  
